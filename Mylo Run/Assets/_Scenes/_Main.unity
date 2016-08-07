@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11493364, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
       propertyPath: m_SpawnDelay
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 170708, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
       propertyPath: m_IsActive
@@ -138,7 +138,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11431908, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
       propertyPath: m_JumpHeight
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5409906, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
       propertyPath: m_Constraints
