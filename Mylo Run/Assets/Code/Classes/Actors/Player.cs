@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	private LayerMask m_GroundLayers;
 
+	private bool m_HasSecondJump = true;
 	private Rigidbody m_Rigidbody = null;
 
 	void Awake ()
@@ -43,9 +44,18 @@ public class Player : MonoBehaviour
 
 	bool CanJump ()
 	{
-		if (Physics.Linecast (transform.position, new Vector3 (transform.position.x, transform.position.y - 0.5f, 0.0f), m_GroundLayers))
+		if (Physics.Linecast (transform.position, new Vector3 (transform.position.x, transform.position.y - 0.65f, 0.0f), m_GroundLayers))
+		{
+			m_HasSecondJump = true;
 			return true;
-		
+		}
+
+		if (m_HasSecondJump)
+		{
+			m_HasSecondJump = false;
+			return true;
+		}			
+
 		return false;
 	}
 }
