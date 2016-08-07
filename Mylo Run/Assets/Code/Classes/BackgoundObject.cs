@@ -6,7 +6,7 @@ public class BackgoundObject : MonoBehaviour
 	[HideInInspector]
 	public float Speed = 5.0f;
 	[HideInInspector]
-	public float m_CullBoundary = -15.0f;
+	public float CullBoundary = -15.0f;
 
 	private Transform m_Transform = null;
 	private BackgroundPool m_Pool = null;
@@ -31,7 +31,7 @@ public class BackgoundObject : MonoBehaviour
 
 	void CheckPosition ()
 	{
-		if (m_Transform.position.x < m_CullBoundary)
+		if (m_Transform.position.x < CullBoundary)
 			DeActivate ();
 	}
 
