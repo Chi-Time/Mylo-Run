@@ -3,27 +3,20 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
-	/// The target object to follow.
 	[Tooltip("The target object to follow.")]
-	public Transform target;
-	/// The distance to keep from the target.
+	public Transform Target;
 	[Tooltip("The distance to keep from the target.")]
-	public float distance = 3.0f;
-	/// How high we are from the target.
+	public float Distance = 3.0f;
 	[Tooltip("How high we are from the target.")]
-	public float height = 3.0f;
-	/// How fast we rotate to keep focus.
+	public float Height = 3.0f;
 	[Tooltip("How fast we rotate to keep focus.")]
-	public float damping = 5.0f;
-	/// Are we using smooth rotation?
-	[Tooltip("Are we using smooth rotation?")]
-	public bool smoothRotation = true;
-	/// Should we follow behind the target.
-	[Tooltip("Should we follow behind the target.")]
-	public bool followBehind = true;
-	/// How fast we rotate.
+	public float Damping = 5.0f;
 	[Tooltip("How fast we rotate.")]
-	public float rotationDamping = 10.0f;
+	public float RotationDamping = 10.0f;
+	[Tooltip("Are we using smooth rotation?")]
+	public bool SmoothRotation = true;
+	[Tooltip("Should we follow behind the target.")]
+	public bool FollowBehind = true;
 	[Tooltip("Should the component look for a player object?")]
 	public bool FindPlayer = true;
 
@@ -31,47 +24,43 @@ public class CameraController : MonoBehaviour
 	{
 		if(FindPlayer)
 		{
-			// Assign target reference.
-			target = GameObject.FindGameObjectWithTag ("Player").transform;
+			Target = GameObject.FindGameObjectWithTag ("Player").transform;
 		}
 	}
 
 	void LateUpdate () 
 	{
-		// Is there a target to lock on to.
-		if(target != null)
+		if(Target != null)
 		{
 			Vector3 wantedPosition;
 
-			if(followBehind)
+			if(FollowBehind)
 			{
-				wantedPosition = target.TransformPoint (0, height, -distance);
+				wantedPosition = Target.TransformPoint (0, Height, -Distance);
 			}
 			else
 			{
-				wantedPosition = target.TransformPoint (0, height, distance);
+				wantedPosition = Target.TransformPoint (0, Height, Distance);
 			}
 
-			transform.position = Vector3.Lerp (transform.position, wantedPosition, Time.deltaTime * damping);
+			transform.position = Vector3.Lerp (transform.position, wantedPosition, Time.deltaTime * Damping);
 
-			if (smoothRotation) 
+			if (SmoothRotation) 
 			{
-				Quaternion wantedRotation = Quaternion.LookRotation (target.position - transform.position, target.up);
+				Quaternion wantedRotation = Quaternion.LookRotation (Target.position - transform.position, Target.up);
 
-				transform.rotation = Quaternion.Slerp (transform.rotation, wantedRotation, Time.deltaTime * rotationDamping);
+				transform.rotation = Quaternion.Slerp (transform.rotation, wantedRotation, Time.deltaTime * RotationDamping);
 			}
 			else 
 			{
-				transform.LookAt (target, target.up);
+				transform.LookAt (Target, Target.up);
 			}
 		}
-		// Is there no target?
 		else 
 		{
 			if(FindPlayer)
 			{
-				// Keep looking for the target and re-assign it when found.
-				target = GameObject.FindGameObjectWithTag("Player").transform;
+				Target = GameObject.FindGameObjectWithTag("Player").transform;
 			}
 		}
 	}
