@@ -134,7 +134,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11493364, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11431908, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
       propertyPath: m_JumpHeight
@@ -160,6 +160,10 @@ Prefab:
       propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11431908, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+      propertyPath: m_GroundLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
   m_IsPrefabParent: 0
@@ -174,7 +178,7 @@ GameObject:
   - 33: {fileID: 1704789463}
   - 65: {fileID: 1704789462}
   - 23: {fileID: 1704789461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
