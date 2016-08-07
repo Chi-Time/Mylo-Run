@@ -43,13 +43,19 @@ public class BackgroundController : MonoBehaviour
 
 		if(bgObject != null)
 		{
+			SetupObject (bgObject);
 			ScaleObject (bgObject);
 			PositionObject (bgObject);
-			bgObject.Speed = m_ParralexSpeed;
-			m_PreviousObject = bgObject;
+			AssignPreviousObject (bgObject);
 		}
 
 		StartCoroutine ("SpawnObject");
+	}
+
+	void SetupObject (BackgoundObject bgObject)
+	{
+		bgObject.Speed = m_ParralexSpeed;
+		bgObject.CullBoundary = m_CullBoundary;
 	}
 
 	void ScaleObject (BackgoundObject bgObject)
@@ -65,16 +71,25 @@ public class BackgroundController : MonoBehaviour
 	{
 		if (m_PreviousObject != null)
 		{
-			float alignment = m_PreviousObject.transform.localScale.x / 2 + bgObject.transform.localScale.x / 2;
+			// Making an alignment by getting the previous object's position then offsetting it 
+			// by both the previous objects origin and the new objects origin as they are at the center of both objects.
+			// This means that the object will be placed directly next to the other.
+			float alignment = m_PreviousObject.transform.position.x + m_PreviousObject.transform.localScale.x / 2 + bgObject.transform.localScale.x / 2;
 
 			bgObject.transform.position = new Vector3 (
-				m_PreviousObject.transform.position.x + alignment + Random.Range (OffsetRange.Min, OffsetRange.Max),
+				alignment + Random.Range (OffsetRange.Min, OffsetRange.Max),
 				bgObject.transform.parent.position.y,
 				bgObject.transform.parent.position.z
 			);
 		}
 		else
+			// Default position of object is no previous object exists.
 			bgObject.transform.position = new Vector3 (25.0f, bgObject.transform.parent.position.y, bgObject.transform.parent.position.z);
+	}
+
+	void AssignPreviousObject (BackgoundObject bgObject)
+	{
+		m_PreviousObject = bgObject;
 	}
 }
 
