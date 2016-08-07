@@ -17,24 +17,25 @@ public class BackgroundPool
 	private List<BackgoundObject> m_InactiveBackgroundObjects = new List<BackgoundObject> ();
 
 	/// Generates the initial pool elements and ensures they are ready for use.
-	public void GeneratePool ()
+	public void GeneratePool (GameObject parent)
 	{
-		var bgObjectHolder = new GameObject ("Background Object Holder");
-		bgObjectHolder.transform.SetParent (GameObject.Find ("Controller").transform);
+		//var bgObjectHolder = new GameObject ("Background Object Holder");
+		//bgObjectHolder.transform.position = new Vector3 (0.0f, -35f, 8f);
+		//bgObjectHolder.transform.SetParent (parent.transform);
 
 		for(int i = 0; i < m_Amount; i++)
 		{
 			for (int j =0; j < m_BackgroundPrefabs.Length; j++)
 			{
-				CreateBackgroundObject (m_BackgroundPrefabs[j]);
+				CreateBackgroundObject (m_BackgroundPrefabs[j], parent.transform);
 			}
 		}
 	}
 
-	void CreateBackgroundObject (GameObject platformToSpawm)
+	void CreateBackgroundObject (GameObject bgObjectToSpawn, Transform parent)
 	{
-		var bgObject = (GameObject)MonoBehaviour.Instantiate (platformToSpawm, Vector3.zero, Quaternion.identity);
-		bgObject.transform.SetParent (GameObject.Find ("Background Object Holder").transform);
+		var bgObject = (GameObject)MonoBehaviour.Instantiate (bgObjectToSpawn, Vector3.zero, Quaternion.identity);
+		bgObject.transform.SetParent (parent);
 
 		var c = bgObject.GetComponent <BackgoundObject> ();
 
