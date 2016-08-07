@@ -28,17 +28,33 @@ public class BackgroundController : MonoBehaviour
 	void Awake ()
 	{
 		m_Pool.GeneratePool (this.gameObject);
+		SpawnInitialObjects ();
+	}
+
+	void SpawnInitialObjects ()
+	{
+		for(int i = 0; i < 5; i++)
+		{
+			SpawnObject ();
+		}
 	}
 
 	void Start ()
 	{
-		StartCoroutine ("SpawnObject");
+		StartCoroutine ("NextObject");
 	}
 
-	IEnumerator SpawnObject ()
+	IEnumerator NextObject ()
 	{
 		yield return new WaitForSeconds (m_SpawnDelay);
 
+		SpawnObject ();
+
+		StartCoroutine ("NextObject");
+	}
+
+	void SpawnObject ()
+	{
 		var bgObject = m_Pool.RetrieveFromPool ();
 
 		if(bgObject != null)
@@ -48,8 +64,6 @@ public class BackgroundController : MonoBehaviour
 			PositionObject (bgObject);
 			AssignPreviousObject (bgObject);
 		}
-
-		StartCoroutine ("SpawnObject");
 	}
 
 	void SetupObject (BackgoundObject bgObject)
@@ -84,7 +98,7 @@ public class BackgroundController : MonoBehaviour
 		}
 		else
 			// Default position of object is no previous object exists.
-			bgObject.transform.position = new Vector3 (25.0f, bgObject.transform.parent.position.y, bgObject.transform.parent.position.z);
+			bgObject.transform.position = new Vector3 (-15.0f, bgObject.transform.parent.position.y, bgObject.transform.parent.position.z);
 	}
 
 	void AssignPreviousObject (BackgoundObject bgObject)
