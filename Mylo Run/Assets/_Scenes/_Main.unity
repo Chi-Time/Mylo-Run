@@ -85,6 +85,109 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &146333647 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 481982, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+  m_PrefabInternal: {fileID: 1295622384}
+--- !u!1 &794114750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 794114751}
+  - 114: {fileID: 794114752}
+  m_Layer: 0
+  m_Name: Platforms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &794114751
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794114750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 146333647}
+  m_RootOrder: 4
+--- !u!114 &794114752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794114750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28667b0a9f6fa6a49b6eee7fb70d9b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnDelay: 0.5
+  m_Pool:
+    m_Amount: 15
+    m_PlatformPrefabs:
+    - {fileID: 106446, guid: 6a5ee920808334141a6e22f02be78b07, type: 2}
+    - {fileID: 166188, guid: 76b4610497200c44fadbd9b4d0f764f2, type: 2}
+    m_ActivePlatforms: []
+    m_InactivePlatforms: []
+--- !u!1 &978400001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 978400002}
+  - 114: {fileID: 978400003}
+  m_Layer: 0
+  m_Name: Skyline 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &978400002
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 978400001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1982854924}
+  m_RootOrder: 2
+--- !u!114 &978400003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 978400001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62dbb9530ff671c4aa11acc14d0096a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinHeight: 45
+  m_MaxHeight: 125
+  m_MinWidth: 5
+  m_MaxWidth: 13
+  m_SpawnDelay: 1.5
+  m_Pool:
+    m_Amount: 10
+    m_BackgroundPrefabs:
+    - {fileID: 194212, guid: 2498bba3611e69343874437088e5c518, type: 2}
+    - {fileID: 108180, guid: d019474f21b627e42a9b8346e1741c5d, type: 2}
+    - {fileID: 112420, guid: d797ad95b4352f04c8d820180aead3a9, type: 2}
+    m_ActiveBackgroundObjects: []
+    m_InactiveBackgroundObjects: []
 --- !u!1001 &1295622384
 Prefab:
   m_ObjectHideFlags: 0
@@ -164,9 +267,66 @@ Prefab:
       propertyPath: m_GroundLayers.m_Bits
       value: 256
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 179876, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11493364, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1582922754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1582922755}
+  - 114: {fileID: 1582922756}
+  m_Layer: 0
+  m_Name: Skyline 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1582922755
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1582922754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -35, z: 8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1982854924}
+  m_RootOrder: 0
+--- !u!114 &1582922756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1582922754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62dbb9530ff671c4aa11acc14d0096a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinHeight: 45
+  m_MaxHeight: 125
+  m_MinWidth: 5
+  m_MaxWidth: 13
+  m_SpawnDelay: 1.5
+  m_Pool:
+    m_Amount: 10
+    m_BackgroundPrefabs:
+    - {fileID: 194212, guid: 2498bba3611e69343874437088e5c518, type: 2}
+    - {fileID: 108180, guid: d019474f21b627e42a9b8346e1741c5d, type: 2}
+    - {fileID: 112420, guid: d797ad95b4352f04c8d820180aead3a9, type: 2}
+    m_ActiveBackgroundObjects: []
+    m_InactiveBackgroundObjects: []
 --- !u!1 &1704789460
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,3 +402,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!4 &1982854924 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 477332, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+  m_PrefabInternal: {fileID: 1295622384}
+--- !u!1 &2032765428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2032765429}
+  - 114: {fileID: 2032765430}
+  m_Layer: 0
+  m_Name: Skyline 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2032765429
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032765428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -35, z: 16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1982854924}
+  m_RootOrder: 1
+--- !u!114 &2032765430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032765428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62dbb9530ff671c4aa11acc14d0096a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinHeight: 65
+  m_MaxHeight: 145
+  m_MinWidth: 5
+  m_MaxWidth: 13
+  m_SpawnDelay: 1.5
+  m_Pool:
+    m_Amount: 10
+    m_BackgroundPrefabs:
+    - {fileID: 194212, guid: 2498bba3611e69343874437088e5c518, type: 2}
+    - {fileID: 108180, guid: d019474f21b627e42a9b8346e1741c5d, type: 2}
+    - {fileID: 112420, guid: d797ad95b4352f04c8d820180aead3a9, type: 2}
+    m_ActiveBackgroundObjects: []
+    m_InactiveBackgroundObjects: []
