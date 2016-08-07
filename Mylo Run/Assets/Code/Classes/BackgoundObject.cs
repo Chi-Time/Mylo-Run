@@ -3,10 +3,10 @@ using System.Collections;
 
 public class BackgoundObject : MonoBehaviour
 {
-	[SerializeField]
-	private float m_Speed = 5.0f;
-	[SerializeField]
-	private float m_CullBoundary = -15.0f;
+	[HideInInspector]
+	public float Speed = 5.0f;
+	[HideInInspector]
+	public float m_CullBoundary = -15.0f;
 
 	private Transform m_Transform = null;
 	private BackgroundPool m_Pool = null;
@@ -26,7 +26,7 @@ public class BackgoundObject : MonoBehaviour
 
 	void Move ()
 	{
-		m_Transform.Translate (Vector3.left * m_Speed * Time.deltaTime);
+		m_Transform.Translate (Vector3.left * Speed * Time.deltaTime);
 	}
 
 	void CheckPosition ()
