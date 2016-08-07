@@ -6,7 +6,7 @@ public class Platform : MonoBehaviour
 	[SerializeField]
 	private float m_Speed = 5.0f;
 	[SerializeField]
-	private float m_CullBoundary = 15.0f;
+	private float m_CullBoundary = -15.0f;
 
 	private Transform m_Transform = null;
 	private PlatformPool m_Pool = null;

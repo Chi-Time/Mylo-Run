@@ -7,7 +7,7 @@ public class PlatformController : MonoBehaviour
 	private float m_SpawnDelay = 1.0f;
 	[SerializeField]
 	private PlatformPool m_Pool = new PlatformPool ();
-	[SerializeField]
+
 	private Platform m_PreviousPlatform = null;
 
 	void Awake ()
@@ -34,7 +34,11 @@ public class PlatformController : MonoBehaviour
 
 	void ScalePlatform (Platform platform)
 	{
-		platform.transform.localScale = new Vector3 (Random.Range (4f, 8f), Random.Range (1f, 1.25f), Random.Range (2f, 4f));
+		platform.transform.localScale = new Vector3 (
+			Random.Range (4f, 8f), 
+			Random.Range (1f, 1.25f), 
+			Random.Range (2f, 4f)
+		);
 	}
 
 	void PositionPlatform (Platform platform)
