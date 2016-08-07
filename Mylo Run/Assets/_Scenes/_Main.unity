@@ -136,58 +136,6 @@ MonoBehaviour:
     - {fileID: 166188, guid: 76b4610497200c44fadbd9b4d0f764f2, type: 2}
     m_ActivePlatforms: []
     m_InactivePlatforms: []
---- !u!1 &978400001
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 978400002}
-  - 114: {fileID: 978400003}
-  m_Layer: 0
-  m_Name: Skyline 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &978400002
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 978400001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1982854924}
-  m_RootOrder: 2
---- !u!114 &978400003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 978400001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62dbb9530ff671c4aa11acc14d0096a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinHeight: 45
-  m_MaxHeight: 125
-  m_MinWidth: 5
-  m_MaxWidth: 13
-  m_SpawnDelay: 1.5
-  m_Pool:
-    m_Amount: 10
-    m_BackgroundPrefabs:
-    - {fileID: 194212, guid: 2498bba3611e69343874437088e5c518, type: 2}
-    - {fileID: 108180, guid: d019474f21b627e42a9b8346e1741c5d, type: 2}
-    - {fileID: 112420, guid: d797ad95b4352f04c8d820180aead3a9, type: 2}
-    m_ActiveBackgroundObjects: []
-    m_InactiveBackgroundObjects: []
 --- !u!1001 &1295622384
 Prefab:
   m_ObjectHideFlags: 0
@@ -271,10 +219,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11432644, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1358778333}
+    - target: {fileID: 11432644, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+      propertyPath: Distance
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432644, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+      propertyPath: Height
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11493364, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1358778333 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 481840, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+  m_PrefabInternal: {fileID: 1295622384}
 --- !u!1 &1582922754
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,11 +278,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dbb9530ff671c4aa11acc14d0096a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinHeight: 45
-  m_MaxHeight: 125
-  m_MinWidth: 5
-  m_MaxWidth: 13
+  HeightRange:
+    Min: 45
+    Max: 125
+  WidthRange:
+    Min: 5
+    Max: 13
+  DepthRange:
+    Min: 4
+    Max: 8
+  OffsetRange:
+    Min: 1
+    Max: 2
   m_SpawnDelay: 1.5
+  m_ParralexSpeed: 3
+  m_CullBoundary: -30
   m_Pool:
     m_Amount: 10
     m_BackgroundPrefabs:
@@ -445,11 +419,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dbb9530ff671c4aa11acc14d0096a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinHeight: 65
-  m_MaxHeight: 145
-  m_MinWidth: 5
-  m_MaxWidth: 13
+  HeightRange:
+    Min: 65
+    Max: 145
+  WidthRange:
+    Min: 5
+    Max: 13
+  DepthRange:
+    Min: 4
+    Max: 8
+  OffsetRange:
+    Min: 0
+    Max: 1
   m_SpawnDelay: 1.5
+  m_ParralexSpeed: 5
+  m_CullBoundary: -30
   m_Pool:
     m_Amount: 10
     m_BackgroundPrefabs:
