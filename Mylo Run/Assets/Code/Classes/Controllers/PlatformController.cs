@@ -34,33 +34,24 @@ public class PlatformController : MonoBehaviour
 
 	void ScalePlatform (Platform platform)
 	{
-		platform.transform.localScale = new Vector3 (Random.Range (4f, 8f), 1.0f, Random.Range (2f, 6f));
+		platform.transform.localScale = new Vector3 (Random.Range (4f, 8f), Random.Range (1f, 1.25f), Random.Range (2f, 4f));
 	}
 
 	void PositionPlatform (Platform platform)
 	{
 		if (m_PreviousPlatform != null)
 		{
+			float edge = m_PreviousPlatform.transform.position.x + platform.transform.localScale.x;
+			float vertical = m_PreviousPlatform.transform.position.y + platform.transform.localScale.y;
+
 			platform.transform.position = new Vector3 (
-				m_PreviousPlatform.transform.position.x + Random.Range (3f, 6f),
-				m_PreviousPlatform.transform.position.y + Random.Range (-3f, 3f),
+				edge + Random.Range (2f, 2.5f),
+				vertical + Random.Range (-3f, 2.25f),
 				0.0f
 			);
 		}
 		else
 			platform.transform.position = new Vector3 (15f, 0.0f, 0.0f);
-	}
-
-	float GetVerticalPosition ()
-	{
-		int outcome = Random.Range (0, 2);
-
-		if(outcome == 0)
-			return 2.0f;
-		else if (outcome == 1)
-			return -2.0f;
-
-		return GetVerticalPosition ();
 	}
 }
 
