@@ -19,10 +19,6 @@ public class BackgroundPool
 	/// Generates the initial pool elements and ensures they are ready for use.
 	public void GeneratePool (GameObject parent)
 	{
-		//var bgObjectHolder = new GameObject ("Background Object Holder");
-		//bgObjectHolder.transform.position = new Vector3 (0.0f, -35f, 8f);
-		//bgObjectHolder.transform.SetParent (parent.transform);
-
 		for(int i = 0; i < m_Amount; i++)
 		{
 			for (int j =0; j < m_BackgroundPrefabs.Length; j++)
