@@ -4,11 +4,22 @@ using System.Collections;
 public class BackgroundController : MonoBehaviour
 {
 	[SerializeField]
-	private float m_MinHeight, m_MaxHeight;
+	public Range HeightRange;
 	[SerializeField]
-	private float m_MinWidth, m_MaxWidth;
+	public Range WidthRange;
 	[SerializeField]
+	public Range DepthRange;
+	[SerializeField]
+	public Range OffsetRange;
+	[SerializeField]
+	[Tooltip("The time between each object's spawn.")]
 	private float m_SpawnDelay = 0.0f;
+	[SerializeField]
+	[Tooltip("The speed at which the background scrolls along the screen.")]
+	private float m_ParralexSpeed = 0.0f;
+	[SerializeField]
+	[Tooltip("The boundary at which to de-activate and return an object back to the pool.")]
+	private float m_CullBoundary = 0.0f;
 	[SerializeField]
 	private BackgroundPool m_Pool = new BackgroundPool ();
 
@@ -16,7 +27,7 @@ public class BackgroundController : MonoBehaviour
 
 	void Awake ()
 	{
-		m_Pool.GeneratePool ();
+		m_Pool.GeneratePool (this.gameObject);
 	}
 
 	void Start ()
@@ -34,6 +45,7 @@ public class BackgroundController : MonoBehaviour
 		{
 			ScaleObject (bgObject);
 			PositionObject (bgObject);
+			bgObject.Speed = m_ParralexSpeed;
 			m_PreviousObject = bgObject;
 		}
 
@@ -43,9 +55,9 @@ public class BackgroundController : MonoBehaviour
 	void ScaleObject (BackgoundObject bgObject)
 	{
 		bgObject.transform.localScale = new Vector3 (
-			Random.Range (m_MinWidth, m_MaxWidth), 
-			Random.Range (m_MinHeight, m_MaxHeight), 
-			bgObject.transform.localScale.z
+			Random.Range (WidthRange.Min, WidthRange.Max), 
+			Random.Range (HeightRange.Min, HeightRange.Max), 
+			Random.Range (DepthRange.Min, DepthRange.Max)
 		);
 	}
 
@@ -53,14 +65,16 @@ public class BackgroundController : MonoBehaviour
 	{
 		if (m_PreviousObject != null)
 		{
+			float alignment = m_PreviousObject.transform.localScale.x / 2 + bgObject.transform.localScale.x / 2;
+
 			bgObject.transform.position = new Vector3 (
-				m_PreviousObject.transform.localScale.x / 2 + bgObject.transform.position.x,
-				0.0f,
-				0.0f
+				m_PreviousObject.transform.position.x + alignment + Random.Range (OffsetRange.Min, OffsetRange.Max),
+				bgObject.transform.parent.position.y,
+				bgObject.transform.parent.position.z
 			);
 		}
 		else
-			bgObject.transform.position = new Vector3 (15.0f, 0.0f, 0.0f);
+			bgObject.transform.position = new Vector3 (25.0f, bgObject.transform.parent.position.y, bgObject.transform.parent.position.z);
 	}
 }
 
