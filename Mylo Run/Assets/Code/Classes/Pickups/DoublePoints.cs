@@ -10,6 +10,7 @@ public class DoublePoints : MonoBehaviour
 	void OnDestroy ()
 	{
 		PickupController.CurrentPickupState = PickupStates.Doubles;
+		GameController.Instance.IncreaseScore (m_Value);
 	}
 }
 

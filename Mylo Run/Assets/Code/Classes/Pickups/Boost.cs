@@ -10,6 +10,7 @@ public class Boost : MonoBehaviour
 	void OnDestroy ()
 	{
 		PickupController.CurrentPickupState = PickupStates.Boosting;
+		GameController.Instance.IncreaseScore (m_Value);
 	}
 }
 

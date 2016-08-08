@@ -10,6 +10,7 @@ public class Slow : MonoBehaviour
 	void OnDestroy ()
 	{
 		PickupController.CurrentPickupState = PickupStates.Slowing;
+		GameController.Instance.IncreaseScore (m_Value);
 	}
 }
 
