@@ -3,17 +3,13 @@ using System.Collections;
 
 public class Fragment : MonoBehaviour
 {
+	[SerializeField]
+	[Tooltip("How many points are awarded to the player upon collection.")]
+	private int m_Value = 15;
 
-	// Use this for initialization
-	void Start ()
+	void OnDestroy ()
 	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
+		GameController.Instance.IncreaseScore (m_Value);
 	}
 }
 

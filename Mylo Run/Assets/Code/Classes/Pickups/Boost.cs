@@ -3,17 +3,13 @@ using System.Collections;
 
 public class Boost : MonoBehaviour
 {
+	[SerializeField]
+	[Tooltip("How many points are awarded to the player upon collection.")]
+	private int m_Value = 50;
 
-	// Use this for initialization
-	void Start ()
+	void OnDestroy ()
 	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
+		PickupController.CurrentPickupState = PickupStates.Boosting;
 	}
 }
 
