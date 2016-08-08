@@ -39,16 +39,20 @@ public class Grabber : MonoBehaviour
 	void OnTriggerEnter (Collider other)
 	{
 		if (other.CompareTag ("Double"))
-			//... Double collection logic.
-			transform.position = Vector3.zero;
+		{
+			Destroy (other.gameObject);
+			Destroy (this.gameObject);
+		}
 		else if (other.CompareTag("Boost"))
-			//... Boost collection logic.
-			transform.position = Vector3.zero;
+		{
+			Destroy (other.gameObject);
+			Destroy (this.gameObject);
+		}
 		else if (other.CompareTag ("Slow"))
-			//... Slow collection logic.
-			transform.position = Vector3.zero;
-
-		Destroy (this.gameObject);
+		{
+			Destroy (other.gameObject);
+			Destroy (this.gameObject);
+		}
 	}
 }
 
