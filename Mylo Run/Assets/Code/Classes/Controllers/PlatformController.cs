@@ -54,10 +54,17 @@ public class PlatformController : MonoBehaviour
 
 		if (platform != null) 
 		{
+			SetupObject (platform);
 			ScalePlatform (platform);
 			PositionPlatform (platform);
 			m_PreviousPlatform = platform;
 		}
+	}
+
+	void SetupObject (Platform platform)
+	{
+		platform.Speed = Speed;
+		platform.CullBoundary = m_CullBoundary;
 	}
 
 	void ScalePlatform (Platform platform)

@@ -4,9 +4,9 @@ using System.Collections;
 public class Platform : MonoBehaviour
 {
 	[SerializeField]
-	private float m_Speed = 5.0f;
+	public float Speed = 5.0f;
 	[SerializeField]
-	private float m_CullBoundary = -15.0f;
+	public float CullBoundary = -15.0f;
 
 	private Transform m_Transform = null;
 	private PlatformPool m_Pool = null;
@@ -29,12 +29,12 @@ public class Platform : MonoBehaviour
 
 	void Move ()
 	{
-		m_Transform.Translate (Vector3.left * m_Speed * Time.deltaTime);
+		m_Transform.Translate (Vector3.left * Speed * Time.deltaTime);
 	}
 
 	void CheckPosition ()
 	{
-		if (m_Transform.position.x < m_CullBoundary)
+		if (m_Transform.position.x < CullBoundary)
 			DeActivate ();
 	}
 
