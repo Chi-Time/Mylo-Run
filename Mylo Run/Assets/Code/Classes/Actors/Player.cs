@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 	private float m_JumpHeight = 6.0f;
 	[SerializeField]
 	private LayerMask m_GroundLayers;
+	[SerializeField]
+	private GameObject GrabPrefab = null;
 
 	private bool m_HasSecondJump = true;
 	private Rigidbody m_Rigidbody = null;
@@ -34,6 +36,9 @@ public class Player : MonoBehaviour
 		//HACK: Using keycodes. Works for now, but more customisable system should be implemented.
 		if (Input.GetKeyUp (KeyCode.W) || Input.GetKeyUp (KeyCode.UpArrow))
 			Jump ();
+
+		if (Input.GetButtonDown ("Fire1"))
+			Grab ();
 	}
 
 	void Jump ()
@@ -57,6 +62,11 @@ public class Player : MonoBehaviour
 		}			
 
 		return false;
+	}
+
+	void Grab ()
+	{
+		Instantiate (GrabPrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
 	}
 }
 
