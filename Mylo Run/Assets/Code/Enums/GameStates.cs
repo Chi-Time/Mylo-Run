@@ -1,12 +1,9 @@
 ﻿using System;
 
-namespace MyloRun
+public enum GameStates
 {
-	public enum GameStates
-	{
-		Start,
-		Loop,
-		Over
-	}
+	Start,
+	Loop,
+	Over
 }
 
