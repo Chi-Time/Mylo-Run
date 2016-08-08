@@ -31,7 +31,7 @@ public class PlatformController : MonoBehaviour
 
 	void Awake ()
 	{
-		m_Pool.GeneratePool ();
+		m_Pool.GeneratePool (this.gameObject);
 		SpawnInitialObjects ();
 	}
 

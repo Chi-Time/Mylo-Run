@@ -17,24 +17,21 @@ public class PlatformPool
 	private List<Platform> m_InactivePlatforms = new List<Platform> ();
 
 	/// Generates the initial pool elements and ensures they are ready for use.
-	public void GeneratePool ()
+	public void GeneratePool (GameObject parent)
 	{
-		var platformHolder = new GameObject ("Platform Holder");
-		platformHolder.transform.SetParent (GameObject.Find ("Controller").transform);
-
 		for(int i = 0; i < m_Amount; i++)
 		{
 			for (int j =0; j < m_PlatformPrefabs.Length; j++)
 			{
-				CreatePlatform (m_PlatformPrefabs[j]);
+				CreatePlatform (m_PlatformPrefabs[j], parent);
 			}
 		}
 	}
 
-	void CreatePlatform (GameObject platformToSpawm)
+	void CreatePlatform (GameObject platformToSpawm, Transform parent)
 	{
 		var platform = (GameObject)MonoBehaviour.Instantiate (platformToSpawm, Vector3.zero, Quaternion.identity);
-		platform.transform.SetParent (GameObject.Find ("Platform Holder").transform);
+		platform.transform.SetParent (parent.transform);
 
 		var c = platform.GetComponent <Platform> ();
 
