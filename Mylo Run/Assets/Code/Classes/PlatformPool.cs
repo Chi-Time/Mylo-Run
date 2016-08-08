@@ -23,7 +23,7 @@ public class PlatformPool
 		{
 			for (int j =0; j < m_PlatformPrefabs.Length; j++)
 			{
-				CreatePlatform (m_PlatformPrefabs[j], parent);
+				CreatePlatform (m_PlatformPrefabs[j], parent.transform);
 			}
 		}
 	}
