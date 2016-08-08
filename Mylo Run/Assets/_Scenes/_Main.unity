@@ -15,14 +15,14 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.024383655, g: 0.30147058, b: 0.20974527, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.49264705, g: 1, b: 0.87403655, a: 1}
+  m_AmbientEquatorColor: {r: 0.9962475, g: 1, b: 0.72794116, a: 1}
+  m_AmbientGroundColor: {r: 0.72794116, g: 0.68155277, b: 0.58877593, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -85,10 +85,25 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &146333646 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 179876, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+  m_PrefabInternal: {fileID: 1295622384}
 --- !u!4 &146333647 stripped
 Transform:
   m_PrefabParentObject: {fileID: 481982, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
   m_PrefabInternal: {fileID: 1295622384}
+--- !u!114 &146333648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 146333646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9a6e503f44e34419e7b2cf42c61bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &794114750
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +143,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28667b0a9f6fa6a49b6eee7fb70d9b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpawnDelay: 0.5
+  Speed: 0
+  m_HeightRange:
+    Min: 1
+    Max: 1.25
+  m_WidthRange:
+    Min: 4
+    Max: 8
+  m_DepthRange:
+    Min: 2
+    Max: 4
+  m_OffsetRange:
+    Min: 1
+    Max: 6
+  m_SpawnDelay: 1
+  m_CullBoundary: -15
   m_Pool:
     m_Amount: 15
     m_PlatformPrefabs:
@@ -193,7 +222,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5409906, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
       propertyPath: m_Constraints
-      value: 112
+      value: 122
       objectReference: {fileID: 0}
     - target: {fileID: 5409906, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
       propertyPath: m_Mass
@@ -231,6 +260,14 @@ Prefab:
       propertyPath: Height
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 481840, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431908, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
+      propertyPath: GrabPrefab
+      value: 
+      objectReference: {fileID: 124122, guid: 6ea176e9740d2c44dacb8c3e54c96c93, type: 2}
     m_RemovedComponents:
     - {fileID: 11493364, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e23f43181e5d31741a55a791399fdee5, type: 2}
@@ -318,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1704789461
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -432,7 +469,7 @@ MonoBehaviour:
     Min: 0
     Max: 1
   m_SpawnDelay: 1.5
-  m_ParralexSpeed: 5
+  m_ParralexSpeed: 4
   m_CullBoundary: -30
   m_Pool:
     m_Amount: 10

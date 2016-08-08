@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - Boost
+  - Slow
+  - Double
   layers:
   - Default
   - TransparentFX
