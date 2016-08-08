@@ -53,6 +53,11 @@ public class Grabber : MonoBehaviour
 			Destroy (other.gameObject);
 			Destroy (this.gameObject);
 		}
+		else if (other.CompareTag ("Fragment"))
+		{
+			Destroy (other.gameObject);
+			Destroy (this.gameObject);
+		}
 	}
 }
 
