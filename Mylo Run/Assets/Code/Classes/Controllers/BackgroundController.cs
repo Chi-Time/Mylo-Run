@@ -13,13 +13,13 @@ public class BackgroundController : MonoBehaviour
 	public Range OffsetRange;
 	[SerializeField]
 	[Tooltip("The time between each object's spawn.")]
-	private float m_SpawnDelay = 0.0f;
+	private float m_SpawnDelay = 1.0f;
 	[SerializeField]
 	[Tooltip("The speed at which the background scrolls along the screen.")]
-	private float m_ParralexSpeed = 0.0f;
+	private float m_ParralexSpeed = 3.0f;
 	[SerializeField]
 	[Tooltip("The boundary at which to de-activate and return an object back to the pool.")]
-	private float m_CullBoundary = 0.0f;
+	private float m_CullBoundary = -30.0f;
 	[SerializeField]
 	private BackgroundPool m_Pool = new BackgroundPool ();
 
