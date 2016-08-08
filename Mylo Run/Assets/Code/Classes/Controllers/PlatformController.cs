@@ -80,7 +80,6 @@ public class PlatformController : MonoBehaviour
 		if (m_PreviousPlatform != null)
 		{
 			float edge = m_PreviousPlatform.transform.position.x + m_PreviousPlatform.transform.localScale.x / 2 + platform.transform.localScale.x / 2;
-			//float vertical = m_PreviousPlatform.transform.position.y + m_PreviousPlatform.transform.localScale.y / 2 + platform.transform.localScale.y / 2;
 
 			platform.transform.position = new Vector3 (
 				edge + Random.Range (m_OffsetRange.Min, m_OffsetRange.Max),
